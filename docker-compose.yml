@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   server:
-    image: server:latest
+    image: vantinh2292/scada_server:latest
     container_name: server
     ports:
       - "${SERVER_PORT}:${SERVER_INTERNAL_PORT}"
@@ -22,7 +22,7 @@ services:
       - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/server/dist:/server/dist
 
   client:
-    image: client:latest
+    image: vantinh2292/scada_client:latest
     container_name: client
     depends_on:
       - server
