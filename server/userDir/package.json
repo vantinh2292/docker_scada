@@ -1,0 +1,30 @@
+{
+    "name": "node-red-project",
+    "description": "A Node-RED Project",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "ace": "file:nodes/ace-2.1.1.tgz",
+        "config_page": "file:nodes/config_page-1.0.1.tgz",
+        "config_project": "file:nodes/config_project-1.3.5.tgz",
+        "config_web_nextjs": "file:nodes/config_web_nextjs-1.6.2.tgz",
+        "node-red-contrib-aedes": "~0.13.0",
+        "node-red-contrib-modbus": "~5.30.0",
+        "node-red-contrib-socketio-client": "~0.2.1",
+        "node-red-node-base64": "~0.3.0",
+        "node-red-node-serialport": "~2.0.3",
+        "node-red-node-sqlite": "~1.1.0",
+        "omron_mobile_robot": "file:nodes/omron_mobile_robot-1.2.8.tgz",
+        "opcua_client": "file:nodes/opcua_client-1.0.8.tgz",
+        "plc_modbus": "file:nodes/plc_modbus-7.4.1.tgz",
+        "plc_modbus_node_red": "file:nodes/plc_modbus_node_red-1.0.0.tgz",
+        "plc_modbus_server": "file:nodes/plc_modbus_server-1.0.9.tgz",
+        "plc_omron": "file:nodes/plc_omron-4.2.2.tgz",
+        "plc_siemens": "file:nodes/plc_siemens-1.0.0.tgz",
+        "scada": "file:nodes/scada-1.1.4.tgz",
+        "socket_client": "file:nodes/socket_client-1.3.4.tgz",
+        "udsm": "file:C:/OMRON/UDSM/Node-RED/jsudsm/udsm",
+        "udsm_nodes": "file:C:/OMRON/UDSM/Node-RED/udsm_nodes",
+        "vnc_setup": "file:nodes/vnc_setup-1.0.5.tgz"
+    }
+}

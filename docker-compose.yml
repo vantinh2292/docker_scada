@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  server:
+    image: server:latest
+    container_name: server
+    ports:
+      - "${SERVER_PORT}:${SERVER_INTERNAL_PORT}"
+      - "${MQTT_PORT}:1883"
+      - "${MQTT_WS_PORT}:8083"
+      - "${DEVICE_PORT}:${DEVICE_INTERNAL_PORT}"
+    env_file:
+      - .env  # Load environment variables from file
+    networks:
+      - mynetwork
+    restart: always
+    environment:
+      - NODE_OPTIONS=--max-old-space-size=256
+    volumes:
+      - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/server/db:/server/db  
+      - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/server/userDir:/server/userDir
+      - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/server/dist:/server/dist
+
+  client:
+    image: client:latest
+    container_name: client
+    depends_on:
+      - server
+    ports:
+      - "${CLIENT_PORT}:${CLIENT_INTERNAL_PORT}"
+    env_file:
+      - .env
+    networks:
+      - mynetwork
+    restart: always
+    volumes:
+      - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/client/public:/client/public
+      - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/client/.next:/client/.next
+
+networks:
+  mynetwork:
+    driver: bridge

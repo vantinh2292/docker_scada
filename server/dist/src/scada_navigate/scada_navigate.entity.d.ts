@@ -1,0 +1,29 @@
+export declare class NavigateEntity {
+    _id: string;
+    parent: string;
+    idGroupControl: string;
+    status: string;
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+    text: string;
+    url: string;
+    type: string;
+    borderRadius: string;
+    colorText: string;
+    colorOn: string;
+    colorOff: string;
+    levelUser: number;
+    fontSize: number;
+    nameImage0: string;
+    nameImage1: string;
+    borderWidthOn: string;
+    borderWidthOff: string;
+    blink0: number;
+    blink1: number;
+    zIndex: number;
+    cssCode: string;
+    enableFlexScale: boolean;
+    objectType: string;
+}

@@ -1,0 +1,32 @@
+export declare class BitAdjustEntity {
+    _id: string;
+    parent: string;
+    idGroupControl: string;
+    idDevice: string;
+    typeDevice: string;
+    status: string;
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+    text: string;
+    tag: string;
+    type: string;
+    borderRadius: string;
+    colorText: string;
+    colorOn: string;
+    colorOff: string;
+    myKeyPress: string;
+    levelUser: number;
+    fontSize: number;
+    unit: string;
+    nameImage0: string;
+    nameImage1: string;
+    borderWidthOn: string;
+    borderWidthOff: string;
+    blink0: number;
+    blink1: number;
+    enableLogData: number;
+    zIndex: number;
+    cssCode: string;
+}
