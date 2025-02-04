@@ -13,7 +13,7 @@
                 "view-show-welcome-tours": true
             },
             "tours": {
-                "welcome": "3.1.6"
+                "welcome": "4.0.5-git"
             },
             "dialog": {
                 "export": {
@@ -21,7 +21,7 @@
                 }
             }
         },
-        "menu-menu-item-sidebar": true,
+        "menu-menu-item-sidebar": false,
         "menu-menu-item-palette": true,
         "menu-deploymenu-item-node": true,
         "menu-deploymenu-item-full": false

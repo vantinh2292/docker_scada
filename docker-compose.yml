@@ -34,7 +34,7 @@ services:
       - mynetwork
     restart: always
     volumes:
-      - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/client/public:/client/public
+      - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/client/config.json:/client/public/config.json
       - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/client/.next:/client/.next
 
 networks:
