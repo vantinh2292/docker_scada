@@ -1,25 +1,24 @@
-version: '3.8'
-
 services:
   server:
     image: vantinh2292/scada_server:latest
     container_name: server
-    ports:
-      - "${SERVER_PORT}:${SERVER_INTERNAL_PORT}"
-      - "${MQTT_PORT}:1883"
-      - "${MQTT_WS_PORT}:8083"
-      - "${DEVICE_PORT}:${DEVICE_INTERNAL_PORT}"
-    env_file:
-      - .env  # Load environment variables from file
     networks:
       - mynetwork
-    restart: always
+    # restart: always
+    ports:
+      - "${DOCKER_SERVER_PORT}:${DOCKER_SERVER_INTERNAL_PORT}"
+      - "${DOCKER_MQTT_PORT}:${DOCKER_MQTT_INTERNAL_PORT}"
+      - "${DOCKER_MQTT_WS_PORT}:${DOCKER_MQTT_WS_INTERNAL_PORT}"
+      - 9600:9600
+      - 502:502
+
     environment:
-      - NODE_OPTIONS=--max-old-space-size=256
+      - NODE_OPTIONS=--max-old-space-size=4096
     volumes:
-      - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/server/db:/server/db  
-      - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/server/userDir:/server/userDir
-      - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/server/dist:/server/dist
+      - D:/OneDrive/Desktop/Docker_Scada/docker_scada/server/db:/server/db  
+      - D:/OneDrive/Desktop/Docker_Scada/docker_scada/server/userDir:/server/userDir
+      - D:/OneDrive/Desktop/Docker_Scada/docker_scada/server/dist:/server/dist
+      - D:/OneDrive/WORK/WebScada/nest-js_server/myPackage:/server/myPackage
 
   client:
     image: vantinh2292/scada_client:latest
@@ -27,15 +26,13 @@ services:
     depends_on:
       - server
     ports:
-      - "${CLIENT_PORT}:${CLIENT_INTERNAL_PORT}"
-    env_file:
-      - .env
+      - "${DOCKER_CLIENT_PORT}:${DOCKER_CLIENT_INTERNAL_PORT}"
     networks:
       - mynetwork
-    restart: always
+    # restart: always
     volumes:
-      - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/client/config.json:/client/public/config.json
-      - D:/OneDrive/WORK/WebScada/Docker_Scada/docker_scada/client/.next:/client/.next
+      - D:/OneDrive/Desktop/Docker_Scada/docker_scada/client/config.json:/client/public/config.json
+      - D:/OneDrive/Desktop/Docker_Scada/docker_scada/client/.next:/client/.next
 
 networks:
   mynetwork:

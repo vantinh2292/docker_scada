@@ -6,7 +6,7 @@
     "dependencies": {
         "ace": "file:nodes/ace-2.1.1.tgz",
         "config_page": "file:nodes/config_page-1.0.1.tgz",
-        "config_project": "file:nodes/config_project-1.3.5.tgz",
+        "config_project": "file:nodes/config_project-1.3.7.tgz",
         "config_web_nextjs": "file:nodes/config_web_nextjs-1.6.2.tgz",
         "node-red-contrib-aedes": "~0.13.0",
         "node-red-contrib-modbus": "~5.30.0",
