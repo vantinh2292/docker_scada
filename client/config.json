@@ -1,5 +1,5 @@
 {
-    "PORT": 8001,
+    "PORT": 8002,
     "MQTT_HOST": "localhost",
-    "MQTT_PORT": 8083
+    "MQTT_PORT": 8084
 }

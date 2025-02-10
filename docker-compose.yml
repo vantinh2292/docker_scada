@@ -1,39 +1,68 @@
 services:
   server:
     image: vantinh2292/scada_server:latest
-    container_name: server
+    container_name: server_admin
     networks:
-      - mynetwork
-    # restart: always
-    ports:
-      - "${DOCKER_SERVER_PORT}:${DOCKER_SERVER_INTERNAL_PORT}"
-      - "${DOCKER_MQTT_PORT}:${DOCKER_MQTT_INTERNAL_PORT}"
-      - "${DOCKER_MQTT_WS_PORT}:${DOCKER_MQTT_WS_INTERNAL_PORT}"
-      - 9600:9600
-      - 502:502
-
+      - my_network
+    restart: always
     environment:
-      - NODE_OPTIONS=--max-old-space-size=4096
+      - NODE_OPTIONS=--max-old-space-size=8192
+      - NODE_RED_ENABLE_CRYPTO=false
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"  # Limit to 2 CPU cores
+          memory: "4G"  # Limit to 4 GB of memory
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     volumes:
-      - D:/OneDrive/Desktop/Docker_Scada/docker_scada/server/db:/server/db  
-      - D:/OneDrive/Desktop/Docker_Scada/docker_scada/server/userDir:/server/userDir
-      - D:/OneDrive/Desktop/Docker_Scada/docker_scada/server/dist:/server/dist
-      - D:/OneDrive/WORK/WebScada/nest-js_server/myPackage:/server/myPackage
+      - D:/OneDrive/Desktop/Docker_Scada/docker_scada_admin/server/db:/server/db  
+      - D:/OneDrive/Desktop/Docker_Scada/docker_scada_admin/server/userDir:/server/userDir
+      - D:/OneDrive/Desktop/Docker_Scada/docker_scada_admin/server/dist:/server/dist
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   client:
     image: vantinh2292/scada_client:latest
-    container_name: client
+    container_name: client_admin
     depends_on:
       - server
-    ports:
-      - "${DOCKER_CLIENT_PORT}:${DOCKER_CLIENT_INTERNAL_PORT}"
     networks:
-      - mynetwork
-    # restart: always
+      - my_network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always
     volumes:
-      - D:/OneDrive/Desktop/Docker_Scada/docker_scada/client/config.json:/client/public/config.json
-      - D:/OneDrive/Desktop/Docker_Scada/docker_scada/client/.next:/client/.next
+      - D:/OneDrive/Desktop/Docker_Scada/docker_scada_admin/client/config.json:/client/public/config.json
+      - D:/OneDrive/Desktop/Docker_Scada/docker_scada_admin/client/.next:/client/.next
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+  nginx:
+    image: nginx:latest
+    container_name: nginx_admin
+    restart: always
+    ports:
+      - 80:80
+      - 8002:8002
+      - 3001:3001
+      - 1884:1884 #MQTT_PORT
+      - 8084:8084 #MQTT_WS_PORT
 
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - my_network
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
 networks:
-  mynetwork:
+  my_network:
     driver: bridge
