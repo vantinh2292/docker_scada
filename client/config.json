@@ -1,5 +1,7 @@
 {
     "PORT": 8002,
     "MQTT_HOST": "localhost",
-    "MQTT_PORT": 8084
+    "MQTT_PORT": 8084,
+    "SERVER_HTTPS":"https://server",
+    "MQTT_WITHOUT_HTTPS":"server"
 }

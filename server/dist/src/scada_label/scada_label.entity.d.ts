@@ -7,6 +7,7 @@ export declare class LabelEntity {
     width: number;
     height: number;
     text: string;
+    listText: string;
     color: string;
     fontSize: number;
     idScreen: string;

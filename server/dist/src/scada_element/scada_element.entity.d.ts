@@ -22,6 +22,7 @@ export declare class ElementEntity {
     rotate: string;
     idDevice: string;
     typeDevice: string;
+    dataType: string;
     enableLogData: number;
     levelUser: number;
     zIndex: number;

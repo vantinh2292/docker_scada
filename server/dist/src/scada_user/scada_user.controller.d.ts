@@ -3,7 +3,7 @@ import { AuthDTO } from './dto';
 export declare class ScadaUserController {
     private readonly scadaUserService;
     constructor(scadaUserService: ScadaUserService);
-    getData(): Promise<import("src/scada_user/scada_user.entity").UserEntity[]>;
+    getData(): Promise<import("./scada_user.entity").UserEntity[]>;
     signup(body: AuthDTO): Promise<{
         result: string;
         data: {};
@@ -37,9 +37,9 @@ export declare class ScadaUserController {
         result: string;
         message: string;
         data: {
-            name: any;
-            levelUser: any;
-            arrIdPageAccess: any;
+            name: string;
+            levelUser: number;
+            arrIdPageAccess: string;
         };
     } | {
         result: string;

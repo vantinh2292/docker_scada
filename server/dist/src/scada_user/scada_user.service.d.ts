@@ -45,13 +45,13 @@ export declare class ScadaUserService {
     signJwtToken(userId: string, name: string, levelUser: number, arrIdPageAccess: string): Promise<{
         accessToken: string;
     }>;
-    verify(info: string): Promise<{
+    verify(token: string): Promise<{
         result: string;
         message: string;
         data: {
-            name: any;
-            levelUser: any;
-            arrIdPageAccess: any;
+            name: string;
+            levelUser: number;
+            arrIdPageAccess: string;
         };
     } | {
         result: string;
