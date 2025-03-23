@@ -11,7 +11,6 @@ import { ScadaBitDisplayRefreshService } from './scada_bit-display/scada_bit-dis
 import { ScadaDWordDisplayRefreshService } from './scada_dword-display/scada_dword-display-refresh.service';
 import { ScadaDWordAdjustRefreshService } from './scada_dword-adjust/scada_dword-adjust-refresh.service';
 import { ScadaStringRefreshService } from './scada_string/scada_string-refresh.service';
-import { ScadaTextFieldRefreshService } from './scada_text-field/scada_text-field-refresh.service';
 import { ScadaWordAdjustRefreshService } from './scada_word-adjust/scada_word-adjust-refresh.service';
 import { ScadaSetupAlarmRefreshService } from './scada_setup-alarm/scada_setup-alarm-refresh.service';
 export declare class AppController {
@@ -29,7 +28,6 @@ export declare class AppController {
     private readonly scadaBitDisplayRefreshService;
     private readonly scadaDWordAdjustRefreshService;
     private readonly scadaStringRefreshService;
-    private readonly scadaTextFieldRefreshService;
     private readonly scadaSetupAlarmRefreshService;
-    constructor(socketGateway: SocketGateway, scadaWordDisplayRefreshService: ScadaWordDisplayRefreshService, scadaNumberRefreshService: ScadaNumberRefreshService, scadaGaugeRefreshService: ScadaGaugeRefreshService, scadaProgressBarRefreshService: ScadaProgressBarRefreshService, scadaSliderRefreshService: ScadaSliderRefreshService, scadaWordAdjustRefreshService: ScadaWordAdjustRefreshService, scadaDWordDisplayRefreshService: ScadaDWordDisplayRefreshService, scadaElementRefreshService: ScadaElementRefreshService, scadaBitAdjustRefreshService: ScadaBitAdjustRefreshService, scadaBitRefreshService: ScadaBitRefreshService, scadaBitDisplayRefreshService: ScadaBitDisplayRefreshService, scadaDWordAdjustRefreshService: ScadaDWordAdjustRefreshService, scadaStringRefreshService: ScadaStringRefreshService, scadaTextFieldRefreshService: ScadaTextFieldRefreshService, scadaSetupAlarmRefreshService: ScadaSetupAlarmRefreshService);
+    constructor(socketGateway: SocketGateway, scadaWordDisplayRefreshService: ScadaWordDisplayRefreshService, scadaNumberRefreshService: ScadaNumberRefreshService, scadaGaugeRefreshService: ScadaGaugeRefreshService, scadaProgressBarRefreshService: ScadaProgressBarRefreshService, scadaSliderRefreshService: ScadaSliderRefreshService, scadaWordAdjustRefreshService: ScadaWordAdjustRefreshService, scadaDWordDisplayRefreshService: ScadaDWordDisplayRefreshService, scadaElementRefreshService: ScadaElementRefreshService, scadaBitAdjustRefreshService: ScadaBitAdjustRefreshService, scadaBitRefreshService: ScadaBitRefreshService, scadaBitDisplayRefreshService: ScadaBitDisplayRefreshService, scadaDWordAdjustRefreshService: ScadaDWordAdjustRefreshService, scadaStringRefreshService: ScadaStringRefreshService, scadaSetupAlarmRefreshService: ScadaSetupAlarmRefreshService);
 }

@@ -18,6 +18,10 @@ export declare class BitEntity {
     textOff: string;
     tag: string;
     nameTag: string;
+    mqttTopic: string;
+    mqttSendMessage: string;
+    mqttTopicReceiveMessage: string;
+    mqttCustomLogic: string;
     tagEnableView: string;
     dataTypeTagEnableView: string;
     type: string;
@@ -38,8 +42,6 @@ export declare class BitEntity {
     enableLogData: number;
     zIndex: number;
     cssCode: string;
-    enableMqtt: boolean;
-    mqttTopic: string;
     enableFlexScale: boolean;
     objectType: string;
     view: boolean;

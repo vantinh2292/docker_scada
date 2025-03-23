@@ -1,6 +1,8 @@
 export declare class TextFieldEntity {
     _id: string;
     parent: string;
+    mqttTopicReceiveMessage: string;
+    mqttCustomLogic: string;
     tag: string;
     left: number;
     top: number;
